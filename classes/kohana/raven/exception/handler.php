@@ -37,7 +37,7 @@ class Kohana_Raven_Exception_Handler extends Kohana_Kohana_Exception {
 			// Get the exception backtrace
 			$trace = $e->getTrace();
 
-			if (($dsn = Kohana::$config->load('raven.dsn')) && !empty($dsn)) {
+			if (($dsn = Kohana::$config->load('raven.default.dsn')) && !empty($dsn)) {
 				$raven = new Raven_Client($dsn);
 				$raven->getIdent($raven->captureException($e));
 			}
