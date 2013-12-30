@@ -43,7 +43,7 @@ class Kohana_Log_Raven extends Log_Writer {
         {
             // Write each message into the log file
             // Format: time --- level: body
-            $this->raven->getIdent($this->raven->captureMessage($message['body'], array(), array('level'=>$this->mapRavenLevel($message['level'])));
+            $this->raven->getIdent($this->raven->captureMessage($message['body'], array(), array('level'=>$this->mapRavenLevel($message['level']))));
         }
     }
 
