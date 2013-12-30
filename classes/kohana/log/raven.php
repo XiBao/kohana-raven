@@ -43,7 +43,22 @@ class Kohana_Log_Raven extends Log_Writer {
         {
             // Write each message into the log file
             // Format: time --- level: body
-            $this->raven->getIdent($this->raven->captureMessage($message['time'].' --- '.$this->_log_levels[$message['level']].': '.$message['body']));
+            $this->raven->getIdent($this->raven->captureMessage($message['body'], array(), array('level'=>$this->mapRavenLevel($message['level'])));
         }
+    }
+
+    private function mapRavenLevel($level) {
+        switch($level) {
+            case self::LOG_EMERG: return Raven_Client::FATAL;
+            case self::LOG_ALERT: return Raven_Client::FATAL;
+            case self::LOG_CRIT: return Raven_Client::FATAL;
+            case self::LOG_ERR: return Raven_Client::ERROR;
+            case self::LOG_WARNING: return Raven_Client::WARNING;
+            case self::LOG_NOTICE: return Raven_Client::INFO;
+            case self::LOG_INFO: return Raven_Client::INFO;
+            case self::LOG_DEBUG: return Raven_Client::DEBUG;
+            case 8: return Raven_Client::DEBUG;
+        }
+        return Raven_Client::INFO;
     }
 }
