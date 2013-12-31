@@ -49,14 +49,14 @@ class Kohana_Log_Raven extends Log_Writer {
 
     private function mapRavenLevel($level) {
         switch($level) {
-            case self::LOG_EMERG: return Raven_Client::FATAL;
-            case self::LOG_ALERT: return Raven_Client::FATAL;
-            case self::LOG_CRIT: return Raven_Client::FATAL;
-            case self::LOG_ERR: return Raven_Client::ERROR;
-            case self::LOG_WARNING: return Raven_Client::WARNING;
-            case self::LOG_NOTICE: return Raven_Client::INFO;
-            case self::LOG_INFO: return Raven_Client::INFO;
-            case self::LOG_DEBUG: return Raven_Client::DEBUG;
+            case 0: return Raven_Client::FATAL;
+            case 1: return Raven_Client::FATAL;
+            case 2: return Raven_Client::FATAL;
+            case 3: return Raven_Client::ERROR;
+            case 4: return Raven_Client::WARNING;
+            case 5: return Raven_Client::INFO;
+            case 6: return Raven_Client::INFO;
+            case 7: return Raven_Client::DEBUG;
             case 8: return Raven_Client::DEBUG;
         }
         return Raven_Client::INFO;
