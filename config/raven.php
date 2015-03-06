@@ -2,6 +2,6 @@
 
 return array(
     'default' => array(
-        'dsn' => 'http://865b4fddbefd4f8e86a1d21424523eb9:00a753df46524c0d84778380d31ad0f2@sentry.xibao100.com/2', // Add your DSN from your raven installation.
+        'dsn' => 'http://167a7672396643e0ae4992b9e523dfdb:85ba7bb064114de0873076d7efc9499d@sentry.xibao100.com/2', // Add your DSN from your raven installation.
     ),
 );
